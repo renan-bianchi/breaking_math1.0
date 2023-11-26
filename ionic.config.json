@@ -1,0 +1,7 @@
+{
+  "name": "breaking_math",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
