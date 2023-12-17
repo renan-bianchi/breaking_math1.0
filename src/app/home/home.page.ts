@@ -1,3 +1,4 @@
+import { TesteService } from './../services/teste.service';
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
