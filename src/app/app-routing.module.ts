@@ -12,8 +12,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'exercises',
+    path: 'exercise'/*teste*/,
     loadChildren: () => import('./exercises/exercises.module').then( m => m.ExercisesPageModule)
+  },
+  {
+    path: 'exercicio-de-inteiros',
+    loadChildren: () => import('./exercicio-de-inteiros/exercicio-de-inteiros.module').then( m => m.ExercicioDeInteirosPageModule)
   },
   
 ];
