@@ -23,18 +23,18 @@
           <ion-item>
             <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
           </ion-item>
-    
+
           <ion-item>
             <ion-list>
-              <ion-radio-group [compareWith]="compareWith" (ionChange)="handleChange($event)">
+              <ion-radio-group (ionChange)="handleChange($event)">
                 <ion-item *ngFor="let answer of answers; trackBy: trackItems">
                   <ion-radio [value]="answer">{{ answer.answer }}</ion-radio>
                 </ion-item>
               </ion-radio-group>
             </ion-list>
           </ion-item>
-  
-    
+
+
         </ion-list>
       </ion-card-content>
     </ion-card>
