@@ -38,9 +38,8 @@ export class ExercicioDeInteirosPage implements OnInit {
       answer: 'Resposta 5',
       type: 'wrong',
     }
-  
-  ];
 
+  ];
 
   handleChange(ev: any) {
     console.log('Current value:', JSON.stringify(ev.target.value));
