@@ -41,10 +41,6 @@ export class ExercicioDeInteirosPage implements OnInit {
   
   ];
 
-  compareWith(o1: any, o2: any) {
-    return o1.id === o2.id;
-
-  }
 
   handleChange(ev: any) {
     console.log('Current value:', JSON.stringify(ev.target.value));
