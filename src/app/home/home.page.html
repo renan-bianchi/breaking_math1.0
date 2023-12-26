@@ -8,72 +8,6 @@
 
 <ion-content [fullscreen]="true" color="dark">
 
-  <!-- ### teste1 página inicial ###
-
-  <div>
-    <ion-accordion-group>
-      
-      <div>
-        <ion-accordion value="first">
-          <ion-item slot="header" color="light">
-            <ion-label>Exercícios Aleatórios</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Fácil</h4>
-            </ion-text>
-          </div>
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Médio</h4>
-            </ion-text>
-          </div>
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Difícil</h4>
-            </ion-text>
-          </div>
-        </ion-accordion>
-      </div>
-      
-     
-      <div>
-        <ion-accordion value="second">
-          
-          <ion-item slot="header" color="light">
-            <ion-label>Exercícios por Matéria</ion-label>
-          </ion-item>
-
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Números</h4>
-            </ion-text>
-            <ion-note slot="start">Frações, decimais, inteiros, razões, proporções, porcentagens e juros simples.</ion-note>
-          </div>
-
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Álgebra</h4>
-            </ion-text>
-            <ion-note slot="start">Expressões algébricas, equações e inequações do 1º grau, sistemas de equações.</ion-note>
-          </div>
-          
-          <div class="ion-padding" slot="content">
-            <ion-text color="dark">
-              <h4>Geometria</h4>
-            </ion-text>
-            <ion-note slot="start">Propriedades de figuras geométricas, cálculo de área e perímetro, ângulos, Teorema de Pitágoras.</ion-note>
-          </div>
-        </ion-accordion>
-      </div>
-      
-    </ion-accordion-group>
-  </div>
-
-        ############# fim teste1-->
-
-
-
   <div>
 
     <ion-menu menuId="first-menu" contentId="main-content">
@@ -138,7 +72,10 @@
             <div class="ion-padding" slot="content">Tudo</div>
             <div class="ion-padding" slot="content">Frações</div>
             <div class="ion-padding" slot="content">Decimais</div>
-            <div class="ion-padding" slot="content">Inteiros</div>
+            <div class="ion-padding" slot="content">
+              Inteiros
+              <ion-nav [root]="component"></ion-nav>
+            </div>
             <div class="ion-padding" slot="content">Razões</div>
             <div class="ion-padding" slot="content">Proporções</div>
             <div class="ion-padding" slot="content">Porcentagens</div>
