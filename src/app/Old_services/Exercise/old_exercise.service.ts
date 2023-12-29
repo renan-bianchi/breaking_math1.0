@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TesteService {
+export class oldExerciseService {
 
 
   public setValue(value: string) {
@@ -12,4 +12,4 @@ export class TesteService {
   }
 
   constructor() { }
-}
+} */ 

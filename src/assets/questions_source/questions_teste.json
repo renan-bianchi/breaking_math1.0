@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "question": "Qual é o resultado da soma de 35 e 17?",
+      "options": [
+        {
+          "id": 1,
+          "text": "42",
+          "correct": true
+        },
+        {
+          "id": 2,
+          "text": "52",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "text": "27",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "text": "50",
+          "correct": false
+        },
+        {
+          "id": 5,
+          "text": "34",
+          "correct": false
+        }
+      ]
+    }
+]

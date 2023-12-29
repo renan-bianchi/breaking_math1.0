@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ExerciseService } from '../services/exercise.service';
+import { Option } from '../types';
 
 @Component({
   selector: 'app-exercicio-de-inteiros',
@@ -6,46 +8,90 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercicio-de-inteiros.page.scss'],
 })
 export class ExercicioDeInteirosPage implements OnInit {
+  questions: any[] = [];
+  selectedOption: { [key: number]: number } = {};
+  showAnswer = false;
 
-  constructor() { }
+  constructor(private exerciseService: ExerciseService) {}
 
   ngOnInit() {
+    this.loadQuestions();
   }
 
-  answers = [
-    {
-      id: 1,
-      answer: 'Resposta 1',
-      type: 'wrong',
-    },
-    {
-      id: 2,
-      answer: 'Resposta 2',
-      type: 'wrong',
-    },
-    {
-      id: 3,
-      answer: 'Resposta 3',
-      type: 'correct',
-    },
-    {
-      id: 4,
-      answer: 'Resposta 4',
-      type: 'wrong',
-    },
-    {
-      id: 5,
-      answer: 'Resposta 5',
-      type: 'wrong',
+  loadQuestions() {
+    this.exerciseService.getQuestions().subscribe(
+      (data: any[]) => {
+        this.questions = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  checkAnswer(question: any) {
+    this.showAnswer = true;
+    // Implemente a lógica para verificar se a opção selecionada é correta
+    // aqui será feita na própria interface no método isAnswerCorrect
+  }
+
+  isAnswerCorrect(question: any): boolean {
+    const selectedOption = this.selectedOption[question.id];
+    if (selectedOption !== undefined) {
+      const selectedQuestion = this.questions.find(
+        (q) => q.id === question.id
+      );
+      if (selectedQuestion) {
+        const correctAnswer = selectedQuestion.options.find(
+          (opt: Option) => opt.correct
+        );
+        return correctAnswer.id === selectedOption;
+      }
     }
-
-  ];
-
-  handleChange(ev: any) {
-    console.log('Current value:', JSON.stringify(ev.target.value));
-  }
-
-  trackItems(index: number, item: any) {
-    return item.id;
+    return false;
   }
 }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /*questions = []; // Aqui você teria as questões do seu JSON
+
+  constructor(private ExerciseService: ExerciseService) { }
+
+  ngOnInit() {
+    this.getQuestions();
+  }
+
+  getQuestions() {
+    this.ExerciseService.getQuestions().subscribe(
+      (data: any) => {
+        this.questions = data;
+        console.log(this.questions);
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
+
+}*/

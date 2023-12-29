@@ -1,43 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Exercício de Inteiros</ion-title>
+    <ion-title>Exercício de Números Inteiros</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Exercício de Inteiros</ion-title>
+      <ion-title size="large">Exercício de Números Inteiros</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Exercício 1</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-          </ion-item>
     
-          <ion-item>
-            <ion-list>
-              <ion-radio-group (ionChange)="handleChange($event)">
-                <ion-item *ngFor="let answer of answers; trackBy: trackItems">
-                  <ion-radio [value]="answer">{{ answer.answer }}</ion-radio>
-                </ion-item>
-              </ion-radio-group>
-            </ion-list>
-          </ion-item>
-  
+    <ion-list *ngFor="let question of questions">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ question.question }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let option of question.options">
+              <ion-radio slot="start" [value]="option.id" 
+                [(ngModel)]="selectedOption[question.id]" 
+                [name]="'question_' + question.id">
+              </ion-radio>
+              <ion-label>{{ option.text }}</ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-button expand="block" (click)="checkAnswer(question)">Verificar Resposta</ion-button>
+          <ion-note *ngIf="showAnswer">
+            {{ isAnswerCorrect(question) ? 'Correta!' : 'Errada!' }}
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
     
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
 
   </div>
 

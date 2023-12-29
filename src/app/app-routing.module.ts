@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -12,10 +13,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'exercise'/*teste*/,
-    loadChildren: () => import('./exercises/exercises.module').then( m => m.ExercisesPageModule)
-  },
-  {
     path: 'exercicio-de-inteiros',
     loadChildren: () => import('./exercicio-de-inteiros/exercicio-de-inteiros.module').then( m => m.ExercicioDeInteirosPageModule)
   },
@@ -24,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }), HttpClientModule
   ],
   exports: [RouterModule]
 })

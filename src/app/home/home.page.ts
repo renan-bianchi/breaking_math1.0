@@ -1,6 +1,5 @@
-import { TesteService } from './../services/teste.service';
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menuCtrl: MenuController) {}
+  constructor(private menuCtrl: MenuController, private navCtrl: NavController) {}
 
   openFirstMenu() {
     /**
@@ -36,5 +35,9 @@ export class HomePage {
      * here because only one "end" menu exists
      */
     this.menuCtrl.open('end');
+  }
+
+  goInteirosPage() {
+    this.navCtrl.navigateForward('exercicio-de-inteiros');
   }
 }
