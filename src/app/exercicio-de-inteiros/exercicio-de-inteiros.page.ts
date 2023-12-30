@@ -25,7 +25,7 @@ export class ExercicioDeInteirosPage implements OnInit {
   }
 
   checkAnswer() {
-    if (this.selectedOption !== undefined) {
+    if (this.selectedOption !== null) {
       const selectedQuestion = this.questions.find(
         (q) => q.id === this.currentQuestion.id
       );
@@ -41,13 +41,6 @@ export class ExercicioDeInteirosPage implements OnInit {
       const nextIndex = currentIndex + 1;
       if (nextIndex < this.questions.length) {
         this.currentQuestion = this.questions[nextIndex];
-        // this.selectedOption = null;
-        setTimeout(() => {
-          const radioButtons = document.getElementsByName('optionRadios');
-          for (let i = 0; i < radioButtons.length; i++) {
-            (radioButtons[i] as HTMLInputElement).checked = false;
-          }
-        }, 100);
       }
       else {
           this.showResult = true;
