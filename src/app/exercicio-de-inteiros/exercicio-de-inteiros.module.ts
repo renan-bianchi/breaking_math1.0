@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ExercicioDeInteirosPageRoutingModule } from './exercicio-de-inteiros-routing.module';
 
 import { ExercicioDeInteirosPage } from './exercicio-de-inteiros.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExercicioDeInteirosPageRoutingModule
+    ExercicioDeInteirosPageRoutingModule,
+    HttpClientModule,
   ],
   declarations: [ExercicioDeInteirosPage]
 })

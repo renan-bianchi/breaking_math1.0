@@ -15,6 +15,47 @@
   </ion-header>
 
   <div>
+    <ion-card *ngIf="currentQuestion">
+      <ion-card-header>
+        <ion-card-title>{{ currentQuestion.question }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-radio-group>
+            <ion-item *ngFor="let option of currentQuestion.options">
+              <ion-radio slot="start" [value]="option.id" [(ngModel)]="selectedOption" name="optionRadios">
+              </ion-radio>
+              <ion-label>{{ option.text }}</ion-label>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-button expand="block" (click)="checkAnswer()">Próxima Pergunta</ion-button>
+    <ion-card *ngIf="showResult">
+      <ion-card-content>
+        <p>Você acertou {{ correctAnswers }} questões!</p>
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  
+  BACKUP
+  
+  <div>
 
     
     <ion-list *ngFor="let question of questions">
@@ -24,23 +65,24 @@
         </ion-card-header>
         <ion-card-content>
           <ion-list>
-            <ion-item *ngFor="let option of question.options">
-              <ion-radio slot="start" [value]="option.id" 
-                [(ngModel)]="selectedOption[question.id]" 
-                [name]="'question_' + question.id">
-              </ion-radio>
-              <ion-label>{{ option.text }}</ion-label>
-            </ion-item>
+            <ion-radio-group [allowEmptySelection]="true">
+              <ion-item *ngFor="let option of question.options">
+                <ion-radio slot="start" [value]="option.id" 
+                  [(ngModel)]="selectedOption[question.id]">
+                </ion-radio>
+                <ion-label>{{ option.text }}</ion-label>
+              </ion-item>
+            </ion-radio-group>
           </ion-list>
-          <ion-button expand="block" (click)="checkAnswer(question)">Verificar Resposta</ion-button>
-          <ion-note *ngIf="showAnswer">
-            {{ isAnswerCorrect(question) ? 'Correta!' : 'Errada!' }}
-          </ion-note>
         </ion-card-content>
       </ion-card>
     </ion-list>
+    <ion-item>
+      <ion-button expand="block" (click)="checkAnswer(questions)">Verificar Resposta</ion-button>
+        <ion-note *ngIf="showAnswer">
+          {{ isAnswerCorrect(questions) ? 'Correta!' : 'Errada!' }}
+        </ion-note>
+    </ion-item>
     
 
-  </div>
-
-</ion-content>
+  </div> -->

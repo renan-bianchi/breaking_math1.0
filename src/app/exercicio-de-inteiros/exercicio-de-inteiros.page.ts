@@ -8,90 +8,50 @@ import { Option } from '../types';
   styleUrls: ['./exercicio-de-inteiros.page.scss'],
 })
 export class ExercicioDeInteirosPage implements OnInit {
+  currentQuestion: any;
+  selectedOption: any | null = null;
+  showResult = false;
+  correctAnswers = 0;
   questions: any[] = [];
-  selectedOption: { [key: number]: number } = {};
-  showAnswer = false;
 
   constructor(private exerciseService: ExerciseService) {}
 
   ngOnInit() {
-    this.loadQuestions();
+    this.exerciseService.getQuestions().subscribe((data) => {
+      // console.log('Dados recebidos:', data);
+      this.questions = data.questions;
+      this.currentQuestion = this.questions[0];
+    });
   }
 
-  loadQuestions() {
-    this.exerciseService.getQuestions().subscribe(
-      (data: any[]) => {
-        this.questions = data;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  checkAnswer(question: any) {
-    this.showAnswer = true;
-    // Implemente a lógica para verificar se a opção selecionada é correta
-    // aqui será feita na própria interface no método isAnswerCorrect
-  }
-
-  isAnswerCorrect(question: any): boolean {
-    const selectedOption = this.selectedOption[question.id];
-    if (selectedOption !== undefined) {
+  checkAnswer() {
+    if (this.selectedOption !== undefined) {
       const selectedQuestion = this.questions.find(
-        (q) => q.id === question.id
+        (q) => q.id === this.currentQuestion.id
       );
-      if (selectedQuestion) {
-        const correctAnswer = selectedQuestion.options.find(
-          (opt: Option) => opt.correct
-        );
-        return correctAnswer.id === selectedOption;
+      const selectedOption = selectedQuestion?.options.find(
+        (opt: Option) => opt.id === this.selectedOption
+      );
+  
+      if (selectedOption?.correct) {
+        this.correctAnswers++;
+      }
+  
+      const currentIndex = this.questions.findIndex(q => q.id === this.currentQuestion.id);
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < this.questions.length) {
+        this.currentQuestion = this.questions[nextIndex];
+        // this.selectedOption = null;
+        setTimeout(() => {
+          const radioButtons = document.getElementsByName('optionRadios');
+          for (let i = 0; i < radioButtons.length; i++) {
+            (radioButtons[i] as HTMLInputElement).checked = false;
+          }
+        }, 100);
+      }
+      else {
+          this.showResult = true;
       }
     }
-    return false;
   }
 }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  /*questions = []; // Aqui você teria as questões do seu JSON
-
-  constructor(private ExerciseService: ExerciseService) { }
-
-  ngOnInit() {
-    this.getQuestions();
-  }
-
-  getQuestions() {
-    this.ExerciseService.getQuestions().subscribe(
-      (data: any) => {
-        this.questions = data;
-        console.log(this.questions);
-      },
-      (error: any) => {
-        console.error(error);
-      }
-    );
-  }
-
-}*/
