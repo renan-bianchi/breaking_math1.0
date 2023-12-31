@@ -37,7 +37,15 @@ export class HomePage {
     this.menuCtrl.open('end');
   }
 
-  goInteirosPage() {
-    this.navCtrl.navigateForward('exercicio-de-inteiros');
+  goexpage1() {
+    this.navCtrl.navigateForward('expage1');
+  }
+
+  goexpage_geometry() {
+    this.navCtrl.navigateForward('expage-exemple-geometry');
+  }
+
+  goexpage_algeb() {
+    this.navCtrl.navigateForward('expage-exemple-algeb');
   }
 }

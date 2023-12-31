@@ -18,19 +18,28 @@
       </ion-header>
       <ion-content class="ion-padding">
         
-          <ion-text color="dark">
-            <h4>Fácil</h4>
-          </ion-text>
+        <ion-list>
+          <ion-list-header slot="header" color="dark">
+            <ion-label>Níveis</ion-label>
+          </ion-list-header>
+  
+            
+            <ion-item slot="header" color="light">
+              <ion-button expand="full" color="light">Fácil</ion-button>
+            </ion-item>
+            
+            
+            <ion-item slot="header" color="light">
+              <ion-button expand="full" color="light">Médio</ion-button>
+            </ion-item>
+           
+            
+            <ion-item slot="header" color="light">
+              <ion-button expand="full" color="light">Difícil</ion-button>
+            </ion-item>
+        </ion-list>
         
         
-          <ion-text color="dark">
-            <h4>Médio</h4>
-          </ion-text>
-       
-        
-          <ion-text color="dark">
-            <h4>Difícil</h4>
-          </ion-text>
         
       </ion-content>
     </ion-menu>
@@ -48,37 +57,81 @@
             <ion-item slot="header" color="light">
               <ion-label>Álgebra</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">Tudo</div>
-            <div class="ion-padding" slot="content">Expressões algébricas</div>
-            <div class="ion-padding" slot="content">Equações de 1º grau</div>
-            <div class="ion-padding" slot="content">Inequações de 1º grau</div>
-            <div class="ion-padding" slot="content">Sistemas de equações</div>
+            <div slot="content">
+              <ion-button expand="full" (click)="goexpage_algeb()" color="light">Tudo</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Expressões Algébricas</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Equações de 1º grau</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Inequações de 1º grau</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Sitemas de equações</ion-button>
+            </div>
           </ion-accordion>
           <ion-accordion value="second">
             <ion-item slot="header" color="light">
               <ion-label>Geometria</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">Tudo</div>
-            <div class="ion-padding" slot="content">Figuras geométricas</div>
-            <div class="ion-padding" slot="content">Cálculo de área</div>
-            <div class="ion-padding" slot="content">Cálculo de perímetro</div>
-            <div class="ion-padding" slot="content">Ângulos</div>
-            <div class="ion-padding" slot="content">Teorema de Pitágoras</div>
+            <div slot="content">
+              <ion-button expand="full" (click)="goexpage_geometry()" color="light">Tudo</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Figuras Geométricas</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Cálculo de área</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Cálculo de perímetro</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Ângulos</ion-button>
+            </div>
+            <div slot="content">
+              <ion-button expand="full" color="light">Teorema de Pitágoras</ion-button>
+            </div>
           </ion-accordion>
           <ion-accordion value="third">
             <ion-item slot="header" color="light">
               <ion-label>Números</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">Tudo</div>
-            <div class="ion-padding" slot="content">Frações</div>
-            <div class="ion-padding" slot="content">Decimais</div>
-            <div class="ion-padding" slot="content">
-              <ion-button expand="full" (click)="goInteirosPage()" color="light">Inteiros</ion-button>
+
+            <div slot="content">
+              <ion-button expand="full" color="light">Tudo</ion-button>
             </div>
-            <div class="ion-padding" slot="content">Razões</div>
-            <div class="ion-padding" slot="content">Proporções</div>
-            <div class="ion-padding" slot="content">Porcentagens</div>
-            <div class="ion-padding" slot="content">Juros simples</div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Frações</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Decimais</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" (click)="goexpage1()" color="light">Inteiros</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Razões</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Proporções</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Porcentagem</ion-button>
+            </div>
+            
+            <div slot="content">
+              <ion-button expand="full" color="light">Juros simples</ion-button>
+            </div>
           </ion-accordion>
         </ion-accordion-group>
 
@@ -102,13 +155,16 @@
             <div class="ion-padding" slot="content">Senha</div>
             <div class="ion-padding" slot="content">Estatísticas</div>
           </ion-accordion>
+          
           <ion-accordion value="second">
             <ion-item slot="header" color="light">
               <ion-label>Idioma</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">Colocar radio buttons</div>
-            
+            <div class="ion-padding" slot="content">Português</div>
+            <div class="ion-padding" slot="content">Inglês</div>
+            <div class="ion-padding" slot="content">Espanhol</div>
           </ion-accordion>
+
           <ion-accordion value="third">
             <ion-item slot="header" color="light">
               <ion-label>Sobre</ion-label>
@@ -119,6 +175,16 @@
             <div class="ion-padding" slot="content">Site</div>
             <div class="ion-padding" slot="content">FAQ</div>
             <div class="ion-padding" slot="content">Suporte</div>
+          </ion-accordion>
+
+          <ion-accordion value="fourth">
+            <ion-item slot="header" color="light">
+              <ion-label>Instituição de Ensino</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">Gerenciamento</div>
+            <div class="ion-padding" slot="content">Financeiro</div>
+            <div class="ion-padding" slot="content">Suporte</div>
+            <div class="ion-padding" slot="content">FAQ</div>
           </ion-accordion>
         </ion-accordion-group>
       </ion-content>
@@ -142,29 +208,29 @@
           <ion-card>
             <ion-card-header>
               <ion-card-title>Seu progresso:</ion-card-title>
-              <ion-card-subtitle>User name</ion-card-subtitle>
+              <ion-card-subtitle>João Silva</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-list>
                 <ion-item>
                   <ion-thumbnail slot="start">
-                    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                    <img alt="Progress icon 1" src="../assets/icon/progress_icons1.png" />
                   </ion-thumbnail>
-                  <ion-label>Matéria A</ion-label>
+                  <ion-label>Álgebra</ion-label>
                 </ion-item>
           
                 <ion-item>
                   <ion-thumbnail slot="start">
-                    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                    <img alt="Progress icon 2" src="../assets/icon/progress_icons2.png" />
                   </ion-thumbnail>
-                  <ion-label>Matéria B</ion-label>
+                  <ion-label>Números</ion-label>
                 </ion-item>
           
                 <ion-item>
                   <ion-thumbnail slot="start">
-                    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                    <img alt="Progress icon 3" src="../assets/icon/progress_icons3.png" />
                   </ion-thumbnail>
-                  <ion-label>Matéria C</ion-label>
+                  <ion-label>Geometria</ion-label>
                 </ion-item>
           
               </ion-list>
